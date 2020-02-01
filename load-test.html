@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+      <link href="style.css" type="text/css" rel="stylesheet">
+			<script type="text/javascript" src="jquery.min.js"></script>
+			<script type="text/javascript" src="jquery.timers.js"></script>
+  </head>
+  <body>
+		<script type="text/javascript">
+		$.ajax({
+			url: "http://macgyver.baylor.edu:672/test.php",
+			cache: false,
+			success: function(html){
+  			$("body").html(html);
+			}
+		});
+			$(document).ready(function(){
+					$("body").everyTime(300000,function(i){
+						$.ajax({
+			  			url: "http://macgyver.baylor.edu:672/test.php",
+			  			cache: false,
+			  			success: function(html){
+			    			$("body").html(html);
+			  			}
+						})
+					})
+				});
+		</script>
+	</body>
+</html>
